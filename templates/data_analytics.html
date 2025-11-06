@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block title %}Services - Data Analytics{% endblock%} 
+
+{%block content %}
+<section class="service-detail py-10">
+  <div class="container text-center">
+    <h2 class="heading mb-4">Data <span>Analytics</span> <i class="fa-solid fa-chart-simple"></i></h2>
+    <p class="lead mb-4">
+      I help individuals and businesses unlock insights from their data through
+      advanced analytics and visualization. Using Python, pandas, and Power BI,
+      I clean, analyze, and visualize datasets to uncover trends, measure
+      performance, and guide strategic decisions.
+    </p>
+    <p class="lead mb-4">My work typically covers:</p>
+    <ul class="list-unstyled text-start d-inline-block">
+      <li>✔ Data cleaning and preprocessing</li>
+      <li>✔ Exploratory Data Analysis (EDA)</li>
+      <li>✔ Building dashboards and visual reports</li>
+      <li>✔ Statistical analysis and trend forecasting</li>
+    </ul>
+    <p class="lead mb-4">
+      My goal is to make data simple, visual, and actionable — empowering you to
+      understand patterns, optimize operations, and achieve measurable growth.
+    </p>
+    <div class="mt-5">
+      <a href="{{ url_for('services') }}" class="btn back-btn">
+        ← Back to Services
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

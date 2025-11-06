@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title%}Contact{% endblock%} {% block
+content%}
+<section class="contact" id="contact">
+  <h2 class="heading">Contact <span>Me</span></h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %} {% for category, message in messages %}
+  <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %} {% endif %} {% endwith %}
+
+  <form action="{{url_for('contact')}}" method="POST">
+    <div class="input-box">
+      <input type="text" name="name" placeholder="Fullname" required/>
+      <input type="email" name="email" placeholder="Email Address" required/>
+    </div>
+    <div class="input-box">
+      <input type="number" placeholder="Mobile Number" />
+      <input type="text" name="subject" placeholder="Email Subject" required/>
+    </div>
+    <textarea
+      name="message"
+      id=""
+      rows="7"
+      placeholder="Your Message"
+      required
+    ></textarea>
+    <input type="submit" value="Send Message" class="btn" id="sendBtn"  />
+  </form>
+</section>
+<script>
+  const form = document.querySelector("form");
+  const btn = document.getElementById("sendBtn");
+  form.addEventListener("submit", () => {
+    btn.value = "Sending...";
+    btn.disabled = true;
+  });
+</script>
+{% endblock %}

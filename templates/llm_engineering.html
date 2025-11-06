@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}Services - LLM Engineering{% endblock
+%} {%block content %}
+<section class="service-detail py-10">
+  <div class="container text-center">
+    <h2 class="heading mb-4">
+      LLM <span>Engineering</span> <i class="fa-solid fa-robot"></i>
+    </h2>
+    <p class="lead mb-4">
+      I design and integrate
+      <strong>Large Language Model (LLM)</strong> solutions that enhance
+      productivity and automate intelligent tasks. From prompt engineering to
+      building AI-powered chatbots and automation tools, I leverage models like
+      <strong>OpenAI GPT</strong> and <strong>LangChain</strong> to create
+      tailored solutions for modern businesses.
+    </p>
+    <ul class="list-unstyled text-start d-inline-block">
+      <li>✔ Prompt engineering and optimization</li>
+      <li>✔ Building LLM-based applications and chatbots</li>
+      <li>✔ AI workflow automation and API integration</li>
+    </ul>
+    <div class="mt-5">
+      <a href="{{ url_for('services') }}" class="btn back-btn">
+        ← Back to Services
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

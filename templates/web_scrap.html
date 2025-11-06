@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+ {% block title %}Services - Web Scraping{% endblock %}
+
+ {%block content %}
+<section class="service-detail py-10">
+  <div class="container text-center">
+    <h2 class="heading mb-4">
+      Web <span>Scraping</span> <i class="fa-solid fa-spider"></i>
+    </h2>
+    <p class="lead mb-4">
+      I build reliable and automated web scraping solutions to extract valuable
+      data from websites efficiently and ethically. Using Python libraries such
+      as BeautifulSoup, Requests, and Selenium, I can transform unstructured web
+      content into well-organized datasets for analysis or integration.
+    </p>
+    <p class="lead mb-4"></p>
+    <ul class="list-unstyled text-start d-inline-block">
+      <li>✔ Dynamic or JavaScript-rendered websites</li>
+      <li>✔ Pagination and multi-page data collection</li>
+      <li>✔ Data cleaning and transformation</li>
+      <li>✔ Exporting data to formats such as CSV, Excel, or databases</li>
+    </ul>
+    <p class="lead mb-4">
+      Whether it’s for price monitoring, market research, or data aggregation, I
+      ensure your scraping tools are fast, accurate, and scalable — helping you
+      make data-driven decisions with ease.
+    </p>
+    <div class="mt-5">
+      <a href="{{ url_for('services') }}" class="btn back-btn">
+        ← Back to Services
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

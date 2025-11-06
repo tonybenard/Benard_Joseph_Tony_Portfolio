@@ -1,0 +1,58 @@
+{
+  "web_development": [
+    {
+      "title": "Flask Portfolio Website",
+      "description": "A personal portfolio website built with Flask, HTML/CSS, and Bootstrap for a client.",
+      "image": "static/images/web_flask_port.png",
+      "link": "https://github.com/tonybenard/Chioma-Portfolio-Site"
+    },
+    {
+      "title": "Flask Blog Site",
+      "description": "A dynamic blog platform built with HTM/CSS/Bootstrap, Flask, SQLAlchemy, and Jinja2, allowing users to view posts, and admins to manage content with ease.",
+      "image": "static/images/web_flask_blog.png",
+      "link": "https://github.com/tonybenard/My-Blog"
+    }
+  ],
+  "web_scraping": [
+    {
+      "title": "Smart Job Scraper",
+      "description": "The Smart Job Scraper is a local intelligent job aggregation tool that combines traditional web scraping with the reasoning power of Large Language Models (LLMs).",
+      "image": "static/images/webscrap_smart_job.png",
+      "link": "https://github.com/tonybenard/Smart-Job-Web-Scraper"
+    },
+    {
+      "title": "Data Entry Automation",
+      "description": "This project automates the process of collecting housing data(price, address, listing link) from Zillow and entering it into a Google Form using BeautifulSoup and Selenium.",
+      "image": "static/images/webscrap_data_auto.png",
+      "link": "https://github.com/tonybenard/Data-Entry-Automation-"
+    }
+  ],
+  "data_analytics": [
+    {
+      "title": "Advanced Nobel Prize Data Analysis",
+      "description": "A detailed data analysis project exploring over a century of Nobel Prize history using Python.",
+      "image": "static/images/data_analytics_proj1.png",
+      "link": "https://github.com/tonybenard/Advanced-Nobel-Prize-Data-Analysis-1901-2020"
+    },
+    {
+      "title": "Most Popular Programming Languages on Stack Overflow",
+      "description": "A data analysis project using Python to explore which programming languages have the most posts on Stack Overflow over time.",
+      "image": "static/images/data_analytics_proj2.png",
+      "link": "https://github.com/tonybenard/Most-Popular-Programming-Languages-on-Stack-Overflow"
+    }
+  ],
+  "llm_engineering": [
+    {
+      "title": "Wikipedia Summarizer",
+      "description": "This tool scrapes Wikipedia articles and generates clear, concise summaries using Large Language Models (LLMs).It combines Selenium + BeautifulSoup for scraping and Ollama for local LLM inference.",
+      "image": "static/images/wiki-ai-summarizer.png",
+      "link": "https://github.com/tonybenard/Wiki-AI-Summarizer"
+    },
+    {
+      "title": "Smart Job Scraper",
+      "description": "The Smart Job Scraper is a local intelligent job aggregation tool that combines traditional web scraping with the reasoning power of Large Language Models (LLMs).",
+      "image": "static/images/webscrap_smart_job.png",
+      "link": "https://github.com/tonybenard/Smart-Job-Web-Scraper"
+    }
+  ]
+}

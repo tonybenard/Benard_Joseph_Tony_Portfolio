@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Portfolio - Benard Portfolio{% endblock %}
+
+{% block content %}
+<section class="portfolio" id="portfolio">
+  <h2 class="heading">My <span>Projects</span></h2>
+
+  <!-- Web Development Section -->
+  <h4 class="heading my-5" style="font-size:3rem">Web Development <i class="fa-solid fa-code"></i></h4>
+  <div class="portfolio-container">
+    {% for project in projects.web_development %}
+    <div class="portfolio-box">
+      <img src="{{ url_for('static', filename=project.image.split('static/')[1]) }}" alt="{{ project.title }}" />
+      <div class="portfolio-layer">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <a href="{{ project.link }}" target="_blank">
+          <i class="fa-solid fa-link"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Web Scraping Section -->
+  <h4 class="heading my-5" style="font-size:3rem">Web Scraping <i class="fa-solid fa-spider"></i></h3>
+  <div class="portfolio-container">
+    {% for project in projects.web_scraping %}
+    <div class="portfolio-box">
+      <img src="{{ url_for('static', filename=project.image.split('static/')[1]) }}" alt="{{ project.title }}" />
+      <div class="portfolio-layer">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <a href="{{ project.link }}" target="_blank">
+          <i class="fa-solid fa-link"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Data Analytics Section -->
+  <h4 class="heading my-5" style="font-size:3rem">Data Analytics <span><i class="fa-solid fa-chart-simple"></i></span></h3>
+  <div class="portfolio-container">
+    {% for project in projects.data_analytics %}
+    <div class="portfolio-box">
+      <img src="{{ url_for('static', filename=project.image.split('static/')[1]) }}" alt="{{ project.title }}" />
+      <div class="portfolio-layer">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <a href="{{ project.link }}" target="_blank">
+          <i class="fa-solid fa-link"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!--LLM Engineering Section -->
+  <h4 class="heading my-5" style="font-size:3rem">LLM Engineering <i class="fa-solid fa-robot"></i></h3>
+  <div class="portfolio-container">
+    {% for project in projects.llm_engineering %}
+    <div class="portfolio-box">
+      <img src="{{ url_for('static', filename=project.image.split('static/')[1]) }}" alt="{{ project.title }}" />
+      <div class="portfolio-layer">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <a href="{{ project.link }}" target="_blank">
+          <i class="fa-solid fa-link"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

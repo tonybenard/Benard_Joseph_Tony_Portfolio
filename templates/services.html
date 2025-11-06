@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %}Services - Benard
+Portfolio{%endblock%} {% block content %}
+<section class="services" id="services">
+  <h2 class="heading">My <span>Services</span></h2>
+
+  <div class="services-container">
+    <div class="services-box">
+      <i class="fa-solid fa-code"></i>
+      <h3>Web Development</h3>
+      <p>
+        I design and develop clean, responsive, and dynamic websites using
+        Flask, Bootstrap, and modern web technologies.
+      </p>
+      <a href="{{url_for('web_dev')}}" class="btn">Read More</a>
+    </div>
+
+    <div class="services-box">
+      <i class="fa-solid fa-spider"></i>
+      <h3>Web Scraping</h3>
+      <p>
+        I build reliable and automated web scraping solutions to extract
+        valuable data from websites efficiently and ethically.
+      </p>
+      <a href="{{url_for('web_scrap')}}" class="btn">Read More</a>
+    </div>
+
+    <div class="services-box">
+      <i class="fa-solid fa-chart-simple"></i>
+      <h3>Data Analytics</h3>
+      <p>
+        I help individuals and businesses unlock insights from their data
+        through advanced analytics and visualization.
+      </p>
+      <a href="{{url_for('data_analytics')}}" class="btn">Read More</a>
+    </div>
+    
+    <div class="services-box">
+      <i class="fa-solid fa-robot"></i>
+      <h3>LLM Engineering</h3>
+      <p>
+        I design, fine-tune, and deploy Large Language Model (LLM)-powered
+        solutions that help businesses automate complex workflows and enhance
+        decision-making.
+      </p>
+      <a href="{{url_for('llm_engineering')}}" class="btn">Read More</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

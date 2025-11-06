@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+ {% block title %}Services - Web Development{% endblock %} 
+
+ {%block content %}
+<section class="service-detail py-10">
+  <div class="container text-center">
+    <h2 class="heading mb-4">Web <span>Development</span> <i class="fa-solid fa-code"></i></h2>
+    <p class="lead mb-4">
+      I design and develop clean, responsive, and dynamic websites using Flask,
+      Bootstrap, and modern web technologies. My goal is to build user-centered
+      experiences that look great and perform smoothly across all devices.
+    </p>
+    <ul class="list-unstyled text-start d-inline-block">
+      <li>✔ Flask-based dynamic web apps</li>
+      <li>✔ Responsive front-end design (Bootstrap)</li>
+      <li>✔ API integration and database handling</li>
+    </ul>
+    <div class="mt-5">
+      <a href="{{ url_for('services') }}" class="btn back-btn">
+        ← Back to Services
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

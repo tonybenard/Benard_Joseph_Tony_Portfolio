@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{%block title%}About - Benard Porfolio{% endblock %}
+
+{% block content %}
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="{{url_for('static', filename='images/about.jpg')}}" alt="about" />
+  </div>
+  <div class="about-content">
+    <h2 class="heading">About <span>Me</span></h2>
+    <h1>Python Developer</h1>
+    <p>
+      I’m a passionate Python developer with experience in building scalable web
+      apps, web scraping, Data Analytics and LLM Engineering.
+    </p>
+    <p id="more-text">
+      I hold a degree in Chemical Engineering from Rivers State University, and
+      over time, I’ve transitioned into tech, combining my analytical background
+      with modern software tools to solve real-world problems. I enjoy building
+      data-driven solutions, automating workflows, and creating clean,
+      responsive web applications. I'm also enthusiastic about continuous
+      learning. Outside coding, I love contributing to
+      discussions around innovation, technology, and personal growth — always
+      striving to learn, build, and impact.
+    </p>
+    <a href="#" class="btn" id="read-more-btn">Read More</a>
+  </div>
+</section>
+
+<script>
+  document
+    .getElementById("read-more-btn")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      const moreText = document.getElementById("more-text");
+      if (moreText.style.display === "none") {
+        moreText.style.display = "block";
+        this.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        this.textContent = "Read More";
+      }
+    });
+</script>
+
+{% endblock %}
