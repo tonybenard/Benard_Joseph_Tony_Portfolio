@@ -66,28 +66,27 @@ def portfolio():
 def contact():
     if request.method == "POST":
         name = request.form["name"]
-        sender_email = request.form["email"]
+        email = request.form["email"]
         subject = request.form["subject"]
-        message_body = request.form["message"]
-
-        msg = EmailMessage()
-        msg["From"] = EMAIL_ADDRESS
-        msg["To"] = EMAIL_ADDRESS 
-        msg["Subject"] = f"Portfolio Contact: {subject}"
-        msg.set_content(
-            f"Name: {name}\nEmail: {sender_email}\n\nMessage:\n{message_body}"
-        )
+        message = request.form["message"]
 
         try:
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-                smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            msg = EmailMessage()
+            msg["From"] = os.getenv("MAIL_FROM")
+            msg["To"] = os.getenv("MAIL_TO")
+            msg["Subject"] = f"New Message from {name}: {subject}"
+            msg.set_content(f"From: {name} <{email}>\n\nMessage:\n{message}")
+
+            with smtplib.SMTP(os.getenv("MAIL_SERVER"), int(os.getenv("MAIL_PORT"))) as smtp:
+                smtp.starttls()
+                smtp.login(os.getenv("MAIL_USERNAME"), os.getenv("MAIL_PASSWORD"))
                 smtp.send_message(msg)
 
-            flash("✅ Your message has been sent successfully!", "success")
+            flash("Message sent successfully! ✅", "success")
             return redirect(url_for("contact"))
+
         except Exception as e:
-            print(e)
-            flash("❌ Failed to send your message. Please try again.", "danger")
+            flash("Something went wrong! Please try again later.", "danger")
             return redirect(url_for("contact"))
 
     return render_template('contact.html')
