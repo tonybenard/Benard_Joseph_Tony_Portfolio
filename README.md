@@ -1,3 +1,8 @@
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-3.1-green)
+![Render](https://img.shields.io/badge/Deployed%20on-Render-purple)
+
+
 # 🗃️ Benard Joseph Tony - Portfolio Website
 
 A fully functional **personal portfolio website** built with **Flask, HTML, CSS, and Bootstrap**,  showcasing my skills, services, and projects.  
