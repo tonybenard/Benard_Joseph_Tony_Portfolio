@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from email.message import EmailMessage
+from dotenv import load_dotenv
+from datetime import datetime
+from threading import Thread
 import smtplib
 import json
 import os
-from dotenv import load_dotenv
-from datetime import datetime
 
 load_dotenv()
 app = Flask(__name__)
@@ -13,6 +14,23 @@ app.secret_key = os.getenv("KEY")
 
 EMAIL_ADDRESS = os.getenv("EMAIL_USER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASS")
+EMAIL_SERVER = os.getenv("MAIL_SERVER")
+MAIL_FROM = os.getenv("MAIL_FROM")
+MAIL_TO = os.getenv("MAIL_TO")
+EMAIL_PORT = 465
+
+
+# Async email sending function
+def send_async_email(app, msg):
+    """Send email in background thread to avoid blocking the request"""
+    with app.app_context():
+        try:
+            with smtplib.SMTP_SSL(EMAIL_SERVER, EMAIL_PORT, timeout=30) as smtp:
+                smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                smtp.send_message(msg)
+                print("Email sent successfully")
+        except Exception as e:
+            print(f"Email sending failed: {e}")
 
 
 #Display current date across all pages
@@ -72,25 +90,23 @@ def contact():
 
         try:
             msg = EmailMessage()
-            msg["From"] = os.getenv("MAIL_FROM")
-            msg["To"] = os.getenv("MAIL_TO")
+            msg["From"] = MAIL_FROM
+            msg["To"] = MAIL_TO
             msg["Subject"] = f"New Message from {name}: {subject}"
-            msg.set_content(f"From: {name} <{email}>\n\nMessage:\n{message}")
+            msg.set_content(f"From: {name}\nEmail: {email}\n\nMessage:\n{message}")
 
-            with smtplib.SMTP(os.getenv("MAIL_SERVER"), int(os.getenv("MAIL_PORT"))) as smtp:
-                smtp.starttls()
-                smtp.login(os.getenv("MAIL_USERNAME"), os.getenv("MAIL_PASSWORD"))
-                smtp.send_message(msg)
+            # Send email in background thread to avoid timeout
+            Thread(target=send_async_email, args=(app, msg)).start()
 
             flash("Message sent successfully! ✅", "success")
             return redirect(url_for("contact"))
 
         except Exception as e:
-            flash("Something went wrong! Please try again later.", "danger")
+            flash(f"Error: {str(e)}", "danger")
             return redirect(url_for("contact"))
 
     return render_template('contact.html')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
