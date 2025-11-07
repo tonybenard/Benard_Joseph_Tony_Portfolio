@@ -37,19 +37,36 @@ def inject_current_year():
 
 
 # Routes
+# Home Page
 @app.route('/')
 def home():
     return render_template('index.html')
 
-
+# About Page
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-
+# Services Page
 @app.route('/services')
 def services():
     return render_template("services.html")
+
+@app.route('/services/web_dev')
+def web_dev():
+    return render_template('web_dev.html')
+
+@app.route('/services/data_analytics')
+def data_analytics():
+    return render_template('data_analytics.html')
+
+@app.route('/services/llm_engineering')
+def llm_engineering():
+    return render_template('llm_engineering.html')
+
+@app.route('/services/web_scrap')
+def web_scrap():
+    return render_template('web_scrap.html')
 
 
 @app.route('/portfolio')
